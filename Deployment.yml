@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nombres
+  namespace: api-antonio
+  labels:
+    app: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nombres
+  template:
+    metadata:
+      labels:
+        app: nombres
+    spec:
+      containers:
+        - name: nombres
+          image: localhost:5000/apiantonio:7
+          ports:
+            - containerPort: 3000
